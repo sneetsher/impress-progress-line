@@ -1,23 +1,70 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<oor:component-data xmlns:oor="http://openoffice.org/2001/registry" 
- xmlns:xs="http://www.w3.org/2001/XMLSchema" 
- oor:name="Addons" oor:package="org.openoffice.Office">
-   <node oor:name="AddonUI">
+<?xml version='1.0' encoding='UTF-8'?>
+<oor:component-data 
+oor:name="Addons" 
+oor:package="org.openoffice.Office" 
+xmlns:install="http://openoffice.org/2004/installation" 
+xmlns:oor="http://openoffice.org/2001/registry" 
+xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <node oor:name="AddonUI">
+  <node oor:name="OfficeMenuBarMerging">
+   <node oor:name="ImpressProgressLineLibrary.OfficeToolbarMerging" oor:op="replace">
+    <node oor:name="S1" oor:op="replace">
+     <prop oor:name="MergeContext" oor:type="xs:string">
+       <value>com.sun.star.presentation.PresentationDocument</value>
+     </prop>
+     <prop oor:name="MergePoint">
+      <value>.uno:ToolsMenu\.uno:AVMediaPlayer</value>
+     </prop>
+     <prop oor:name="MergeCommand">
+      <value>AddAfter</value>
+     </prop>
+     <prop oor:name="MergeFallback">
+      <value>AddPath</value>
+     </prop>
+     <node oor:name="MenuItems">
+      <node oor:name="M1" oor:op="replace">
+       <prop oor:name="Title">
+        <value xml:lang="en-US">~Progress Line</value>
+       </prop>
+       <node oor:name="Submenu">
+        <node oor:name="M1" oor:op="replace">
+         <prop oor:name="Title">
+          <value xml:lang="en-US">~Add</value>
+         </prop>
+         <prop oor:name="URL">
+          <value>vnd.sun.star.script:ImpressProgressLineLibrary.ProgressLineModule.ProgressLineAdd?language=Basic&amp;location=application</value>
+         </prop>
+        </node>
+        <node oor:name="M2" oor:op="replace">
+         <prop oor:name="Title">
+          <value xml:lang="en-US">~Remove</value>
+         </prop>
+         <prop oor:name="URL">
+          <value>vnd.sun.star.script:ImpressProgressLineLibrary.ProgressLineModule.ProgressLineRemove?language=Basic&amp;location=application</value>
+         </prop>
+        </node>
+       </node>
+      </node>
+     </node>
+    </node>
+   </node>
+  </node>
 
       <node oor:name="OfficeToolbarMerging">
          <node oor:name="ImpressProgressLineLibrary.OfficeToolbarMerging" oor:op="replace">
             <node oor:name="N001" oor:op="replace">
                <prop oor:name="MergeContext" oor:type="xs:string">
-		  <value>com.sun.star.presentation.PresentationDocument</value>
+                   <value>com.sun.star.presentation.PresentationDocument</value>
                </prop>
                <prop oor:name="MergeToolBar" oor:type="xs:string">
                   <value>standardbar</value>
                </prop>
                <prop oor:name="MergePoint" oor:type="xs:string">
-                  <value>.uno:ExportDirectToPDF</value>
+                  <value>.uno:InsertTable</value>
                </prop>
                <prop oor:name="MergeCommand" oor:type="xs:string">
-                  <value>AddAfter</value>
+                  <value>AddBefore</value>
                </prop>
                <prop oor:name="MergeFallback" oor:type="xs:string">
                   <value>AddLast</value>
@@ -28,11 +75,25 @@
                         <value/>
                      </prop>
                      <prop oor:name="Title" oor:type="xs:string">
-                        <value xml:lang="en">Progress Line</value>
+                        <value xml:lang="en">Add progress line</value>
                      </prop>
                      <prop oor:name="URL" oor:type="xs:string">
-		  	<value>vnd.sun.star.script:ImpressProgressLineLibrary.ProgressLineModule.ProgressLineAdd?language=Basic&amp;location=application</value>
-	       	     </prop>
+            <value>vnd.sun.star.script:ImpressProgressLineLibrary.ProgressLineModule.ProgressLineAdd?language=Basic&amp;location=application</value>
+                 </prop>
+                     <prop oor:name="Target" oor:type="xs:string">
+                        <value>_self</value>
+                     </prop>
+                  </node>
+                <node oor:name="N003" oor:op="replace">
+                     <prop oor:name="Context" oor:type="xs:string">
+                        <value/>
+                     </prop>
+                     <prop oor:name="Title" oor:type="xs:string">
+                        <value xml:lang="en">Remove progress line</value>
+                     </prop>
+                     <prop oor:name="URL" oor:type="xs:string">
+            <value>vnd.sun.star.script:ImpressProgressLineLibrary.ProgressLineModule.ProgressLineRemove?language=Basic&amp;location=application</value>
+                 </prop>
                      <prop oor:name="Target" oor:type="xs:string">
                         <value>_self</value>
                      </prop>
@@ -44,16 +105,29 @@
 
       <node oor:name="Images">
          <node oor:name="ImpressProgressLineLibrary.OfficeToolbarMerging.N001" oor:op="replace">
-	    <prop oor:name="URL" oor:type="xs:string">
-               <value>vnd.sun.star.script:ImpressProgressLineLibrary.ProgressLineModule.ProgresLineAdd?language=Basic&amp;location=application</value>
+            <prop oor:name="URL" oor:type="xs:string">
+               <value>vnd.sun.star.script:ImpressProgressLineLibrary.ProgressLineModule.ProgressLineAdd?language=Basic&amp;location=application</value>
             </prop>
             <node oor:name="UserDefinedImages">
                <prop oor:name="ImageSmallURL" oor:type="xs:string">
-                  <value>%origin%/icons/image_26.bmp</value>
+                  <value>%origin%/icons/add.svg</value>
+               </prop>
+            </node>
+         </node>
+
+         <node oor:name="ImpressProgressLineLibrary.OfficeToolbarMerging.N002" oor:op="replace">
+            <prop oor:name="URL" oor:type="xs:string">
+               <value>vnd.sun.star.script:ImpressProgressLineLibrary.ProgressLineModule.ProgressLineRemove?language=Basic&amp;location=application</value>
+            </prop>
+            <node oor:name="UserDefinedImages">
+               <prop oor:name="ImageSmallURL" oor:type="xs:string">
+                  <value>%origin%/icons/remove.svg</value>
                </prop>
             </node>
          </node>
       </node>
 
-   </node>
+
+
+ </node>
 </oor:component-data>
