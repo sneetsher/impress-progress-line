@@ -40,8 +40,7 @@ Sub ProgressLineAdd
     oDocument = ThisComponent
     If oDocument.supportsService("com.sun.star.drawing.GenericDrawingDocument") Then
         'Load index
-        sIndexPath = oDocument.URL
-        sIndexPath = Mid( Left(sIndexPath, InStr(sIndexPath, ".odp")-1) & ".index",1,Len(sIndexPath)+2)
+        sIndexPath = oDocument.URL & ".index"
         iFileNumber = Freefile
         Open sIndexPath For Input As #iFileNumber
         'First line is section total count

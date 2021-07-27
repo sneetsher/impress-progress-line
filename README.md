@@ -17,7 +17,7 @@ Current state, it is working (LibreOffice v6.0.2.1). However, Setting are not pr
 
 ### Add ProgressLine
 
-1. Create index, a text file, in same folder with same name but with `.index` extension
+1. Create index, a text file, in same folder with same name but with `.index` extension, (double extension) example `test.odp.index`:
 
         5
         1,_
