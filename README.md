@@ -1,21 +1,18 @@
-# impress-progress-line
+# Progress Line
+**(impress-progress-line)**
 
-Progress indicator for LibreOffice/OpenOffice Impress. A modification of https://github.com/dasaki/Impress-Progress-Bar .
+Progress Line for LibreOffice/OpenOffice Impress presentations. It builds and adds very simple outline with progress indicator into existing slides, from a custom TOC file.
 
-Well, may be not so sophisticated. I had looked to start by forking that repository but end up, writing from scratch.
+It uses a separate TOC from specific `<file.ext>.index` file to give authors full control on what should be shown and ability to shorten long titles.
 
-Current state, it is working (LibreOffice v6.0.2.1). However, Setting are not presented in GUI.
+Other customization possible: shape/color/font/format/margin are declared at the top of the script, any user with basic knowledge of Basic can tweak it.
 
-## Setup
+## Install
 
-1. Tools > Macros > Organize Macros > LibreOffice Basic...
-1. My Macros > Standard: New module name it "ProgressLine" or whatever.
-1. Select it then Edit, Copy contents of [src/ProgressLine.bas](src/ProgressLine.bas)
-1. Save it
+1. Go to [extensions.libreoffice.org: progress-line](https://extensions.libreoffice.org/en/extensions/show/progress-line)
+1. Downlaod last release and open it with LO/AOO.
 
-## Workflow
-
-### Add ProgressLine
+## Add
 
 1. Create index, a text file, in same folder with same name but with `.index` extension, (double extension) example `test.odp.index`:
 
@@ -31,15 +28,36 @@ Current state, it is working (LibreOffice v6.0.2.1). However, Setting are not pr
    - `_` special for section without title
 
 1. Open your presentation
+1. Tools > Progress Line > Add (Available also on toolbar ![Progress Line - Add Button](package/icons/add.png))
+
+## Remove
+
+- Tools > Progress Line > Remove (Available also on toolbar ![Progress Line - Remove Button](package/icons/remove.png))
+
+## Manual setup and alternative workflow
+
+### Setup
+
+1. Tools > Macros > Organize Macros > LibreOffice Basic...
+1. My Macros: Create new Library "ProgressLineLibrary"
+2. Then create new Module name it "ProgressLineModule" or whatever.
+1. Select it then Edit, Copy contents of [src/ProgressLine.bas](src/ProgressLine.bas) or just import it.
+1. Save it
+
+### Add
+
+1. Create `<file.ext>.index` file
+1. Open your presentation
 1. Tools > Macros > Organize Macros > LibreOffice Basic...: Run `ProgressLineAdd`
 
-### Remove ProgressLine
+### Remove
 
 - Tools > Macros > Organize Macros > LibreOffice Basic...: Run `ProgressLineRemove`
 
-## Notes
+## Screenshots
 
-- Most settings are grouped at the top of the script, so it should be somehow easy to tweak it.
+![screenshot - overview - Progress Line for LibreOffice/OpenOffice Impress Presentation](doc/screenshot_01.png)
 
+![screenshot - toolbar buttons - Progress Line for LibreOffice/OpenOffice Impress Presentation](doc/screenshot_02.png)
 
-![screen shot - LibreOffice-OpenOffice Impress-Presentation Progress Bar with Sections Top Outline](doc/screenshot_01.png)
+![screenshot - tools submenu - Progress Line for LibreOffice/OpenOffice Impress Presentation](doc/screenshot_03.png)
